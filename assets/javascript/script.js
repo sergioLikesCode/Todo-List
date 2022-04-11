@@ -2,6 +2,7 @@ const inputTask = window.document.querySelector('input');
 const buttonTask = window.document.querySelector('.button');
 const taskArea = window.document.querySelector('.task-area');
 const deleteTask = window.document.querySelectorAll('.delete-task');
+const buttonClear = window.document.querySelector('.clear');
 
 const addElement = () => {
   if (inputTask.value != '') {
@@ -12,6 +13,7 @@ const addElement = () => {
     task.setAttribute('class', 'task');
     inputTask.value = '';
     inputTask.focus();
+
     // delete-task
     let delTask = window.document.createElement('div');
     let svgTask = window.document.createElement('ion-icon');
@@ -19,6 +21,7 @@ const addElement = () => {
     delTask.setAttribute('class', 'delete-task');
     delTask.appendChild(svgTask);
     createTask.appendChild(delTask);
+    delTask.addEventListener('click', deleteTaskFunction);
     // decoration.
     document.querySelector('span').style.display = 'none';
     taskArea.style.justifyContent = 'flex-start';
@@ -26,16 +29,19 @@ const addElement = () => {
 };
 
 buttonTask.addEventListener('click', addElement);
+// buttonClear.addEventListener('click', clearList);
 
-console.log(deleteTask);
-
-window.document.querySelectorAll('.delete-task').forEach(item => {
-  item.addEventListener('click', deleteTaskFunction);
-  console.log('dwad');
+window.document.addEventListener('keyup', (event) => {
+  if (event.keyCode == 13) {
+    addElement();
+  }
 });
 
 function deleteTaskFunction() {
-  // this.style.backgroundColor = 'purple';
-  console.log('teste');
-};
+  this.parentElement.remove();
+}
 
+// console.log(document.querySelectorAll('task'));
+// function clearList() {
+//     deleteTaskFunction();
+// }
