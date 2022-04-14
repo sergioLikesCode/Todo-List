@@ -29,19 +29,28 @@ const addElement = () => {
 };
 
 buttonTask.addEventListener('click', addElement);
-// buttonClear.addEventListener('click', clearList);
+buttonClear.addEventListener('click', clearList);
 
-window.document.addEventListener('keyup', (event) => {
-  if (event.keyCode == 13) {
+window.document.addEventListener('keyup', (event) => {g
+  if (event.key == 'Enter') {
     addElement();
   }
 });
 
 function deleteTaskFunction() {
   this.parentElement.remove();
+  if(document.querySelectorAll('.task').length == 0) {
+    document.querySelector('span').style.display = 'block';
+    taskArea.style.justifyContent = 'center';
+  }
 }
 
-// console.log(document.querySelectorAll('task'));
-// function clearList() {
-//     deleteTaskFunction();
-// }
+function clearList() {
+  if (document.querySelectorAll('.task').length > 0) {
+    document.querySelectorAll('.task').forEach((div) => {
+      div.remove();
+    });
+    document.querySelector('span').style.display = 'block';
+    taskArea.style.justifyContent = 'center';
+  } else alert('você precisa de um conteúdo para ser apagado.');
+}
