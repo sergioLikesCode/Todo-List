@@ -31,7 +31,7 @@ const addElement = () => {
 buttonTask.addEventListener('click', addElement);
 buttonClear.addEventListener('click', clearList);
 
-window.document.addEventListener('keyup', (event) => {g
+window.document.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
     addElement();
   }
