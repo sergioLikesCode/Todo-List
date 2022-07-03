@@ -2,6 +2,8 @@ const inputTask = window.document.querySelector('input');
 const buttonTask = window.document.querySelector('.button');
 const taskArea = window.document.querySelector('.task-area');
 const buttonClear = window.document.querySelector('.clear');
+let editTaskArea = window.document.querySelector('.edit-task-area');
+
 let isEditTaskActive = false;
 
 buttonTask.addEventListener('click', handleAddElement);
@@ -61,13 +63,13 @@ function handleDeleteTask() {
   if (document.querySelectorAll('.task').length === 0) {
     document.querySelector('span').style.display = 'block';
     taskArea.style.justifyContent = 'center';
+    closeTaskEditArea();
   }
 }
 
 function handleEditTask() {
   if (isEditTaskActive) return alert('Você já está editando uma tarefa.');
-  let taskValue = window.document.querySelector('.task span');
-  let editTaskArea = window.document.querySelector('.edit-task-area');
+  let taskValue = this.parentElement.parentElement.children[1];
   let editTaskAreaInput = window.document.querySelector(
     '.edit-task-area input'
   );
@@ -90,10 +92,9 @@ function handleEditTask() {
   });
 
   editTaskAreaCloseButton.addEventListener('click', () => {
-    editTaskArea.style.display = 'none';
+    closeTaskEditArea();
     // default task color.
     this.parentElement.parentElement.style.backgroundColor = '#eaeaea';
-    isEditTaskActive = false;
   });
 }
 
@@ -104,5 +105,11 @@ function handleClearList() {
     });
     document.querySelector('span').style.display = 'block';
     taskArea.style.justifyContent = 'center';
+    closeTaskEditArea();
   } else alert('você precisa de um conteúdo para ser apagado.');
+}
+
+function closeTaskEditArea() {
+  editTaskArea.style.display = 'none';
+  isEditTaskActive = false;
 }

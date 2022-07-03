@@ -24,8 +24,8 @@ main {
 
 .todo-list {
   background-color: #fff;
-  width: 500px;
-  min-height: 530px;
+  width: 768px;
+  height: 550px;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.216);
@@ -33,7 +33,7 @@ main {
 
 .edit-task-area {
   display: none;
-  width: 500px;
+  width: 768px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.216);
@@ -85,8 +85,8 @@ main {
   align-items: center;
   border-top: 1px solid rgb(182, 188, 200);
   overflow-y: auto;
-  max-height: 400px;
-  min-height: 300px;
+  max-height: 340px;
+  min-height: 340px;
 }
 .task-area span {
   font-size: 24px;
@@ -142,4 +142,67 @@ main {
 .task span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 19px;
+}
+
+@media (max-width: 768px) {
+  .todo-list {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .edit-task-area {
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 100%; */
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .edit-task-area button {
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .edit-task-area .button {
+    margin-right: 5px;
+  }
+
+  .edit-task-area .close-button {
+    margin-left: 5px;
+  }
+
+  .add-task input,
+  .edit-task-area input {
+    flex: auto;
+  }
+
+  .add-task input {
+    order: 100;
+  }
+
+  .add-task {
+    margin-bottom: 15px;
+  }
+
+  .add-task,
+  .edit-task-area {
+    /* height: 100px; */
+    margin: 0;
+    flex-wrap: wrap;
+  }
+
+  .button,
+  .clear {
+    flex: 1;
+    margin: 0;
+    padding: 15px 0;
+    margin-bottom: 10px;
+  }
+  .button {
+    margin-right: 5px;
+  }
+  .clear {
+    margin-left: 5px;
+  }
 }
