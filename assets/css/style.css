@@ -85,7 +85,7 @@ main {
   align-items: center;
   border-top: 1px solid rgb(182, 188, 200);
   overflow-y: auto;
-  max-height: 340px;
+  max-height: 385px;
   min-height: 340px;
 }
 .task-area span {
