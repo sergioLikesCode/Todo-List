@@ -33,25 +33,28 @@ function handleCreateElement() {
 
   // element properties.
   taskArea.appendChild(task);
-  taskText.innerText = inputTask.value;
-  taskText.style.order = -1;
-  task.setAttribute('class', 'task');
   task.appendChild(taskOptionsWrapper);
   task.appendChild(taskText);
-  taskOptionsWrapper.appendChild(delTask);
-  taskOptionsWrapper.appendChild(editTask);
-  taskOptionsWrapper.classList.add('task-options-wrapper');
-  svgTask.setAttribute('name', 'trash-outline');
-  svgEditTask.setAttribute('name', 'create-outline');
   delTask.appendChild(svgTask);
   editTask.appendChild(svgEditTask);
+  taskOptionsWrapper.appendChild(delTask);
+  taskOptionsWrapper.appendChild(editTask);
+
+  task.setAttribute('class', 'task');
+  svgTask.setAttribute('name', 'trash-outline');
+  svgEditTask.setAttribute('name', 'create-outline');
+  
+  taskOptionsWrapper.classList.add('task-options-wrapper');
   editTask.classList.add('task-options-button');
   delTask.classList.add('task-options-button');
+
+  taskText.innerText = inputTask.value;
+  taskText.style.order = -1;
   taskArea.style.justifyContent = 'flex-start';
 
   delTask.addEventListener('click', handleDeleteTask);
-
   editTask.addEventListener('click', handleEditTask);
+
 }
 
 window.document.addEventListener('keyup', (event) => {
