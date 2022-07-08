@@ -16,7 +16,7 @@ function handleAddElement() {
       'Você não pode criar uma tarefa enquanto estiver editando outra.'
     );
   handleCreateElement();
-  document.querySelector('span').style.display = 'none';
+  document.querySelector('li').style.display = 'none';
   inputTask.value = '';
   inputTask.focus();
 }
@@ -64,7 +64,7 @@ window.document.addEventListener('keyup', (event) => {
 function handleDeleteTask() {
   this.parentElement.parentElement.remove();
   if (document.querySelectorAll('.task').length === 0) {
-    document.querySelector('span').style.display = 'block';
+    document.querySelector('li').style.display = 'block';
     taskArea.style.justifyContent = 'center';
     closeTaskEditArea();
   }
@@ -106,7 +106,7 @@ function handleClearList() {
     document.querySelectorAll('.task').forEach((div) => {
       div.remove();
     });
-    document.querySelector('span').style.display = 'block';
+    document.querySelector('li').style.display = 'block';
     taskArea.style.justifyContent = 'center';
     closeTaskEditArea();
   } else alert('você precisa de um conteúdo para ser apagado.');
